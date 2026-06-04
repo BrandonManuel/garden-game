@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 50.0
-const JUMP_VELOCITY = -400.0
+const WALK_SPEED = 50.0
+const RUN_SPEED = 75.0
+const JUMP_VELOCITY = -200.0
 
+var is_running: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -12,22 +14,28 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	is_running = Input.is_action_pressed("run")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("walk_left", "walk_right")
 	if direction:
-		animated_sprite_2d.play('walk')
-		velocity.x = direction * SPEED
+		if is_running:
+			animated_sprite_2d.play('run')
+			velocity.x = direction * RUN_SPEED
+		else:
+			animated_sprite_2d.play('walk')
+			velocity.x = direction * WALK_SPEED
 		if direction < 1:
 			animated_sprite_2d.flip_h = true
 		else:
 			animated_sprite_2d.flip_h = false
 	else:
 		animated_sprite_2d.play('idle')
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
 
 
 	move_and_slide()
