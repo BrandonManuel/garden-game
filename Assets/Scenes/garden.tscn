@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://pgg836n3mxa" path="res://Assets/Sprites/Garden tileset.png" id="2_ssxcs"]
 [ext_resource type="Texture2D" uid="uid://ctape4tb0os20" path="res://Assets/Sprites/Garden background tileset.png" id="3_bvpys"]
 [ext_resource type="Script" uid="uid://bou71w28h816f" path="res://Assets/Scripts/player.gd" id="4_bvpys"]
-[ext_resource type="Texture2D" uid="uid://cihgl264jb63b" path="res://Assets/Sprites/Bunny.png" id="4_ssxcs"]
 [ext_resource type="Texture2D" uid="uid://b2fqexhf50ps8" path="res://Assets/Sprites/Character with some animations.png" id="5_i2s24"]
 [ext_resource type="PackedScene" uid="uid://e8gekhvgbuii" path="res://Assets/Scenes/chicken.tscn" id="6_281sc"]
+[ext_resource type="PackedScene" uid="uid://qk5mmlx4jtbp" path="res://Assets/Scenes/bunny.tscn" id="7_i2s24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_281sc"]
 texture = ExtResource("1_birjt")
@@ -423,47 +423,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvpys"]
-atlas = ExtResource("4_ssxcs")
-region = Rect2(0, 0, 23, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_281sc"]
-atlas = ExtResource("4_ssxcs")
-region = Rect2(0, 0, 23, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2s24"]
-atlas = ExtResource("4_ssxcs")
-region = Rect2(23, 0, 23, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5ce1"]
-atlas = ExtResource("4_ssxcs")
-region = Rect2(46, 0, 23, 20)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_m5m1r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bvpys")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_281sc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i2s24")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c5ce1")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 8.0
-}]
-
 [node name="Garden" type="Node2D" unique_id=563138073]
 
 [node name="GardenLayer" type="TileMapLayer" parent="." unique_id=1488167815]
@@ -476,6 +435,9 @@ tile_set = SubResource("TileSet_kkwia")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1409757336]
 collision_mask = 2
+floor_constant_speed = true
+floor_max_angle = 0.87266463
+floor_snap_length = 32.0
 script = ExtResource("4_bvpys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1968860082]
@@ -494,17 +456,13 @@ animation = &"run"
 [node name="Chickens" type="Node" parent="." unique_id=1379510337]
 
 [node name="Chicken" parent="Chickens" unique_id=1936475183 instance=ExtResource("6_281sc")]
-position = Vector2(352, 91)
+position = Vector2(352, 94)
 
 [node name="Chicken2" parent="Chickens" unique_id=44186813 instance=ExtResource("6_281sc")]
-position = Vector2(378, 91)
-scale = Vector2(-1, 1)
+position = Vector2(378, 94)
+scale = Vector2(-0.75, 0.75)
 
 [node name="Bunnies" type="Node" parent="." unique_id=538911774]
 
-[node name="Bunny" type="AnimatedSprite2D" parent="Bunnies" unique_id=1312867931]
-texture_filter = 1
-position = Vector2(-30, 27)
-sprite_frames = SubResource("SpriteFrames_m5m1r")
-animation = &"walk"
-frame_progress = 0.5650626
+[node name="Bunny" parent="Bunnies" unique_id=1293085006 instance=ExtResource("7_i2s24")]
+position = Vector2(-26, 29)

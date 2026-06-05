@@ -133,6 +133,7 @@ animations = [{
 }]
 
 [node name="Chicken" type="AnimatedSprite2D" unique_id=1936475183]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_exuec")
 animation = &"idle"
 frame_progress = 0.39478958
