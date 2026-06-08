@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cihgl264jb63b" path="res://Assets/Sprites/Bunny.png" id="1_33rfx"]
 [ext_resource type="Script" uid="uid://c2dpco2ifv4fy" path="res://Assets/Scripts/bunny.gd" id="2_urcow"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvpys"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_33rfx"]
 atlas = ExtResource("1_33rfx")
 region = Rect2(0, 0, 23, 20)
 
@@ -23,7 +23,7 @@ region = Rect2(46, 0, 23, 20)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bvpys")
+"texture": SubResource("AtlasTexture_33rfx")
 }],
 "loop": true,
 "name": &"idle",

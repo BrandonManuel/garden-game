@@ -27,7 +27,7 @@ texture = ExtResource("1_birjt")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.9827671, 1.5969973, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0.3685379, 0, 8, 8, -8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7.125064, 8, 8, -8, 8)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6.019449, -8, -8, 8)
 3:1/0 = 0
@@ -436,7 +436,7 @@ tile_set = SubResource("TileSet_kkwia")
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1409757336]
 collision_mask = 2
 floor_constant_speed = true
-floor_max_angle = 0.87266463
+floor_max_angle = 1.134464
 floor_snap_length = 32.0
 script = ExtResource("4_bvpys")
 

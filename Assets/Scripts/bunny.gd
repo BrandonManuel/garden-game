@@ -14,24 +14,32 @@ var is_walking: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.play('walk')
+	self.play('idle')
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x += current_direction * SPEED * delta
 	if ((current_direction == Direction.LEFT and not left_detector.is_colliding()) or 
 		(current_direction == Direction.RIGHT and not right_detector.is_colliding())):
 		turn_around()
-		position.x += current_direction * SPEED * delta 
 	if not is_walking:
-		start_roam_timer()
+		start_roam_timer(delta)
+	elif animation == 'walk':
+		position.x += current_direction * SPEED * delta
 
-func start_roam_timer() -> void:
+func start_roam_timer(delta: float) -> void:
 	is_walking = true
+	self.play('walk')
+	var random_float = randf_range(MIN_SECONDS, MAX_SECONDS)
+	await get_tree().create_timer(random_float).timeout
+		
+	start_idle_timer()
+	
+func start_idle_timer() -> void:
+	self.play('idle')
 	var random_float = randf_range(MIN_SECONDS, MAX_SECONDS)
 	await get_tree().create_timer(random_float).timeout
 	
-	# 50% chance to turn around randomly
+		# 50% chance to turn around randomly
 	if randi_range(0, 1) == 0:
 		turn_around()
 		
