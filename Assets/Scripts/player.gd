@@ -1,14 +1,19 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var pickup_area: Area2D = $Area2D
+@onready var pickup_area: Area2D = $AnimatedSprite2D/Area2D
 
 const WALK_SPEED = 50.0
 const RUN_SPEED = 75.0
 const JUMP_VELOCITY = -200.0
 
+var pickup_area_x: float
+
 var is_running: bool = false
 var allow_movement: bool = true
+
+func _ready() -> void:
+	pickup_area_x = pickup_area.position.x
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -37,8 +42,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * WALK_SPEED
 		if direction < 1:
 			animated_sprite_2d.flip_h = true
+			pickup_area.position.x = pickup_area_x * -1
 		else:
 			animated_sprite_2d.flip_h = false
+			pickup_area.position.x = pickup_area_x
 	elif not animated_sprite_2d.is_playing() or animated_sprite_2d.animation != 'pick_up':
 		animated_sprite_2d.play('idle')
 		velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
@@ -56,6 +63,6 @@ func attempt_pickup() -> void:
 	velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
 	animated_sprite_2d.play("pick_up")
 	for area in pickup_area.get_overlapping_areas():
-		if area.has_method("picked_up"):
+		if area.is_in_group("pickupables") and area.has_method("picked_up"):
 			area.picked_up()
 			break
