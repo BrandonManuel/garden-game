@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var pickup_area: Area2D = $Area2D
 
 const WALK_SPEED = 50.0
 const RUN_SPEED = 75.0
@@ -20,9 +21,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Handle pickup.
 	if Input.is_action_just_pressed("pick_up") and is_on_floor():
-		allow_movement = false
-		velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
-		animated_sprite_2d.play("pick_up")
+		attempt_pickup()
 		
 	is_running = Input.is_action_pressed("run")
 
@@ -51,3 +50,12 @@ func _physics_process(delta: float) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == 'pick_up':
 		allow_movement = true
+
+func attempt_pickup() -> void:
+	allow_movement = false
+	velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
+	animated_sprite_2d.play("pick_up")
+	for area in pickup_area.get_overlapping_areas():
+		if area.has_method("picked_up"):
+			area.picked_up()
+			break

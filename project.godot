@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="garden"
 
+[global_group]
+
+pickupables=""
+
 [input]
 
 walk_left={

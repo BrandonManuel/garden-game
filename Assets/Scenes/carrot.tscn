@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://mq06eetk2bog"]
+
+[ext_resource type="Script" uid="uid://c5vj8eq83smw5" path="res://Assets/Scripts/carrot.gd" id="1_k12ti"]
+[ext_resource type="Texture2D" uid="uid://dw0ouqgmfcu64" path="res://Assets/Sprites/Carrot.png" id="1_pkbe7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k12ti"]
+radius = 10.05
+
+[node name="Carrot" type="Area2D" unique_id=1640175768 groups=["pickupables"]]
+script = ExtResource("1_k12ti")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=535966257]
+position = Vector2(0, -11)
+texture = ExtResource("1_pkbe7")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757594662]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_k12ti")
