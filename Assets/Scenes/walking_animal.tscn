@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://qk5mmlx4jtbp"]
+
+[ext_resource type="Texture2D" uid="uid://cihgl264jb63b" path="res://Assets/Sprites/Bunny.png" id="1_33rfx"]
+[ext_resource type="Script" uid="uid://c2dpco2ifv4fy" path="res://Assets/Scripts/bunny.gd" id="2_urcow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33rfx"]
+atlas = ExtResource("1_33rfx")
+region = Rect2(0, 0, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_281sc"]
+atlas = ExtResource("1_33rfx")
+region = Rect2(0, 0, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2s24"]
+atlas = ExtResource("1_33rfx")
+region = Rect2(23, 0, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ce1"]
+atlas = ExtResource("1_33rfx")
+region = Rect2(46, 0, 23, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5m1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33rfx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_281sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2s24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5ce1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="WalkingAnimal" type="AnimatedSprite2D" unique_id=1293085006]
+z_index = 1
+texture_filter = 1
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_m5m1r")
+animation = &"walk"
+script = ExtResource("2_urcow")
+
+[node name="LeftDetector" type="RayCast2D" parent="." unique_id=1789956694]
+position = Vector2(-15, 0)
+target_position = Vector2(0, 15)
+collision_mask = 2
+
+[node name="RightDetector" type="RayCast2D" parent="." unique_id=1598943246]
+position = Vector2(15, 0)
+target_position = Vector2(0, 15)
+collision_mask = 2
