@@ -1,20 +1,9 @@
 [gd_scene format=3 uid="uid://b55jut54gsb2v"]
 
-[ext_resource type="Script" uid="uid://c5vj8eq83smw5" path="res://Assets/Scripts/carrot.gd" id="1_qpyk1"]
+[ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="1_qpyk1"]
 [ext_resource type="Texture2D" uid="uid://dsk4m0tlngs3r" path="res://Assets/Sprites/Onion.png" id="2_qpyk1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k12ti"]
-radius = 10.05
+[node name="Onion" unique_id=1640175768 instance=ExtResource("1_qpyk1")]
 
-[node name="Onion" type="Area2D" unique_id=1640175768 groups=["pickupables"]]
-script = ExtResource("1_qpyk1")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=535966257]
-position = Vector2(0, -11)
+[node name="Sprite2D" parent="." index="0" unique_id=535966257]
 texture = ExtResource("2_qpyk1")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757594662]
-position = Vector2(0, -15)
-shape = SubResource("CircleShape2D_k12ti")

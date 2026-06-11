@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	elif animation == 'walk':
 		position.x += current_direction * SPEED * delta
 
-func start_roam_timer(delta: float) -> void:
+func start_roam_timer(_delta: float) -> void:
 	is_walking = true
 	self.play('walk')
 	var random_float = randf_range(MIN_SECONDS, MAX_SECONDS)

@@ -11,6 +11,7 @@ var pickup_area_x: float
 
 var is_running: bool = false
 var allow_movement: bool = true
+var is_picking_up: bool = false
 
 func _ready() -> void:
 	pickup_area_x = pickup_area.position.x
@@ -53,17 +54,21 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if animated_sprite_2d.animation == 'pick_up':
-		allow_movement = true
-
 func attempt_pickup() -> void:
+	if is_picking_up:
+		return
+		
 	for area in pickup_area.get_overlapping_areas():
 		if area.is_in_group("pickupables") and area.has_method("picked_up"):
+			is_picking_up = true
 			allow_movement = false
 			velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
 			animated_sprite_2d.play("pick_up")
 			area.picked_up()
 			# break to ensure only one item is picked up at a time
 			break
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == 'pick_up':
+		allow_movement = true
+		is_picking_up = false
