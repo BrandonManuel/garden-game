@@ -59,10 +59,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		allow_movement = true
 
 func attempt_pickup() -> void:
-	allow_movement = false
-	velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
-	animated_sprite_2d.play("pick_up")
 	for area in pickup_area.get_overlapping_areas():
 		if area.is_in_group("pickupables") and area.has_method("picked_up"):
+			allow_movement = false
+			velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
+			animated_sprite_2d.play("pick_up")
 			area.picked_up()
+			# break to ensure only one item is picked up at a time
 			break
