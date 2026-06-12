@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://baf8tjixw8swp"]
 
 [ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="1_pkbe7"]
+[ext_resource type="Script" uid="uid://b6wrcgvaje12f" path="res://Assets/Scripts/carrot.gd" id="2_k12ti"]
+[ext_resource type="Resource" uid="uid://hhmbuae1u7rm" path="res://Assets/Resources/carrot.tres" id="3_fcg08"]
 
 [node name="Carrot" unique_id=1640175768 instance=ExtResource("1_pkbe7")]
+script = ExtResource("2_k12ti")
+data = ExtResource("3_fcg08")

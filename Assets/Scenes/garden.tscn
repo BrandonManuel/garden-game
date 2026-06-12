@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://qk5mmlx4jtbp" path="res://Assets/Scenes/walking_animal.tscn" id="7_i2s24"]
 [ext_resource type="PackedScene" uid="uid://dlyk636w6nuap" path="res://Assets/Scenes/player.tscn" id="7_m5m1r"]
 [ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="8_m5m1r"]
+[ext_resource type="Script" uid="uid://dq0g54e3ur5g" path="res://Assets/Scripts/gui_inventory.gd" id="11_kkwia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_281sc"]
 texture = ExtResource("1_birjt")
@@ -303,3 +304,12 @@ position = Vector2(362, 94)
 
 [node name="Bunny" parent="Bunnies" unique_id=1293085006 instance=ExtResource("7_i2s24")]
 position = Vector2(-26, 29)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=315969487]
+
+[node name="GUI_Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=236302930]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("11_kkwia")

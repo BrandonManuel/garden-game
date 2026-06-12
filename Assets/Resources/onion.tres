@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupableData" format=3 uid="uid://bap5pvtwqdetw"]
+
+[ext_resource type="Texture2D" uid="uid://dsk4m0tlngs3r" path="res://Assets/Sprites/Onion.png" id="1_5dvti"]
+[ext_resource type="Script" uid="uid://d02dg0hpngfwa" path="res://Assets/Scripts/pickupable_data.gd" id="1_eij3n"]
+
+[resource]
+script = ExtResource("1_eij3n")
+name = "Onion"
+icon = ExtResource("1_5dvti")
+metadata/_custom_type_script = "uid://d02dg0hpngfwa"

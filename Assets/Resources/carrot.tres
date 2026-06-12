@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupableData" format=3 uid="uid://hhmbuae1u7rm"]
+
+[ext_resource type="Script" uid="uid://d02dg0hpngfwa" path="res://Assets/Scripts/pickupable_data.gd" id="1_altuy"]
+[ext_resource type="Texture2D" uid="uid://dw0ouqgmfcu64" path="res://Assets/Sprites/Carrot.png" id="1_xebie"]
+
+[resource]
+script = ExtResource("1_altuy")
+name = "Carrot"
+icon = ExtResource("1_xebie")
+metadata/_custom_type_script = "uid://d02dg0hpngfwa"

@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://b55jut54gsb2v"]
 
 [ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="1_qpyk1"]
+[ext_resource type="Script" uid="uid://bym8rplwtowce" path="res://Assets/Scripts/onion.gd" id="2_ouow2"]
 [ext_resource type="Texture2D" uid="uid://dsk4m0tlngs3r" path="res://Assets/Sprites/Onion.png" id="2_qpyk1"]
+[ext_resource type="Resource" uid="uid://bap5pvtwqdetw" path="res://Assets/Resources/onion.tres" id="3_15c51"]
 
 [node name="Onion" unique_id=1640175768 instance=ExtResource("1_qpyk1")]
+script = ExtResource("2_ouow2")
+data = ExtResource("3_15c51")
 
 [node name="Sprite2D" parent="." index="0" unique_id=535966257]
 texture = ExtResource("2_qpyk1")
