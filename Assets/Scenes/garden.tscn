@@ -307,9 +307,24 @@ position = Vector2(-26, 29)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=315969487]
 
-[node name="GUI_Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=236302930]
-anchors_preset = 10
-anchor_right = 1.0
+[node name="InventoryContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1001447939]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
 grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/InventoryContainer" unique_id=1073502029]
+visible = false
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="GUI_Inventory" type="HBoxContainer" parent="CanvasLayer/InventoryContainer" unique_id=236302930]
+layout_mode = 2
 alignment = 1
 script = ExtResource("11_kkwia")
+
+[connection signal="toggle_inventory" from="Player" to="CanvasLayer/InventoryContainer/GUI_Inventory" method="_on_player_toggle_inventory"]

@@ -13,6 +13,8 @@ var is_running: bool = false
 var allow_movement: bool = true
 var is_picking_up: bool = false
 
+signal toggle_inventory
+
 func _ready() -> void:
 	pickup_area_x = pickup_area.position.x
 
@@ -28,6 +30,10 @@ func _physics_process(delta: float) -> void:
 	# Handle pickup.
 	if Input.is_action_just_pressed("pick_up") and is_on_floor():
 		attempt_pickup()
+		
+	# Handle inventory.
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
 		
 	is_running = Input.is_action_pressed("run")
 
