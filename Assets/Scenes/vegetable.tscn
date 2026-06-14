@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://mq06eetk2bog"]
 
 [ext_resource type="Script" uid="uid://c5vj8eq83smw5" path="res://Assets/Scripts/vegetable.gd" id="1_4otcl"]
+[ext_resource type="Shader" uid="uid://cwf30sdalu3l1" path="res://Assets/Shaders/interactable.gdshader" id="1_xg1kk"]
 [ext_resource type="Texture2D" uid="uid://dw0ouqgmfcu64" path="res://Assets/Sprites/Carrot.png" id="2_xg1kk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xg1kk"]
+shader = ExtResource("1_xg1kk")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12ti"]
 radius = 10.05
@@ -10,6 +17,7 @@ radius = 10.05
 script = ExtResource("1_4otcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=535966257]
+material = SubResource("ShaderMaterial_xg1kk")
 position = Vector2(0, -11)
 texture = ExtResource("2_xg1kk")
 region_enabled = true

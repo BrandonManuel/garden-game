@@ -256,7 +256,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5ce1"]
 radius = 6.0
 
-[node name="Player" type="CharacterBody2D" unique_id=946169238]
+[node name="Player" type="CharacterBody2D" unique_id=946169238 groups=["player"]]
 z_index = 1
 collision_mask = 2
 floor_constant_speed = true
@@ -277,7 +277,7 @@ position_smoothing_enabled = true
 sprite_frames = SubResource("SpriteFrames_hef0f")
 animation = &"pick_up"
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1445750911]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1445750911 groups=["pickup_area"]]
 position = Vector2(8, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=710354545]

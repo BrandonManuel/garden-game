@@ -8,6 +8,7 @@ const RUN_SPEED = 75.0
 const JUMP_VELOCITY = -200.0
 
 var pickup_area_x: float
+var current_pickupable: Pickupable = null
 
 var is_running: bool = false
 var allow_movement: bool = true
@@ -17,6 +18,8 @@ signal toggle_inventory
 
 func _ready() -> void:
 	pickup_area_x = pickup_area.position.x
+	pickup_area.area_entered.connect(_on_pickup_area_entered)
+	pickup_area.area_exited.connect(_on_pickup_area_exited)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -61,20 +64,36 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func attempt_pickup() -> void:
-	if is_picking_up:
+	if is_picking_up or current_pickupable == null or not current_pickupable.is_in_group("pickupables") or not current_pickupable.has_method("picked_up"):
 		return
-		
+	
+	is_picking_up = true
+	allow_movement = false
+	velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
+	animated_sprite_2d.play("pick_up")
+	current_pickupable.picked_up()
+	current_pickupable = null
+	find_next_pickupable()
+
+func find_next_pickupable() -> void:
 	for area in pickup_area.get_overlapping_areas():
-		if area.is_in_group("pickupables") and area.has_method("picked_up"):
-			is_picking_up = true
-			allow_movement = false
-			velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
-			animated_sprite_2d.play("pick_up")
-			area.picked_up()
-			# break to ensure only one item is picked up at a time
+		if area is Pickupable and area.is_in_group("pickupables"):
+			current_pickupable = area
+			current_pickupable.set_outline(true)
 			break
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == 'pick_up':
 		allow_movement = true
 		is_picking_up = false
+
+func _on_pickup_area_entered(area: Area2D) -> void:
+	if area is Pickupable and current_pickupable == null:
+		current_pickupable = area
+		current_pickupable.set_outline(true)
+		
+func _on_pickup_area_exited(area: Area2D) -> void:
+	if area is Pickupable and current_pickupable == area:
+		current_pickupable = null
+		area.set_outline(false)
+		find_next_pickupable()

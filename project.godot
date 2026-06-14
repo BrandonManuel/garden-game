@@ -26,6 +26,8 @@ project/assembly_name="garden"
 [global_group]
 
 pickupables=""
+pickup_area=""
+player=""
 
 [input]
 
