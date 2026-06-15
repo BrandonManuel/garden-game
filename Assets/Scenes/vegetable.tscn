@@ -17,6 +17,7 @@ radius = 10.05
 script = ExtResource("1_4otcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=535966257]
+z_index = 2
 material = SubResource("ShaderMaterial_xg1kk")
 position = Vector2(0, -11)
 texture = ExtResource("2_xg1kk")

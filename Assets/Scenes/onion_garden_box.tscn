@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ctidjvkufd25k"]
+
+[ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="1_gnueh"]
+[ext_resource type="Script" uid="uid://bym8rplwtowce" path="res://Assets/Scripts/onion.gd" id="2_5hmuk"]
+[ext_resource type="Resource" uid="uid://bap5pvtwqdetw" path="res://Assets/Resources/onion.tres" id="3_4t7u5"]
+[ext_resource type="Texture2D" uid="uid://dsk4m0tlngs3r" path="res://Assets/Sprites/Onion.png" id="4_x8q33"]
+
+[node name="OnionGardenBox" unique_id=1640175768 instance=ExtResource("1_gnueh")]
+script = ExtResource("2_5hmuk")
+data = ExtResource("3_4t7u5")
+
+[node name="Sprite2D" parent="." index="0" unique_id=535966257]
+z_index = -1
+texture = ExtResource("4_x8q33")
+offset = Vector2(0, 16)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=757594662]
+position = Vector2(0, 15)
