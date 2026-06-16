@@ -23,6 +23,10 @@ Inventory="*uid://bg4i8svce6txd"
 
 project/assembly_name="garden"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/brand/Godot/garden/Assets/Recordings/gameplay.avi"
+
 [global_group]
 
 pickupables=""

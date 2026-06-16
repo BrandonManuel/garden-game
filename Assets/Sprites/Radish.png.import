@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckfrsdabbxpdx"
-path="res://.godot/imported/Beet.png-942f1b12103e3ec98a9a74029d1b032b.ctex"
+path="res://.godot/imported/Radish.png-18e3f52152e1401a128112f23e670efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Beet.png"
-dest_files=["res://.godot/imported/Beet.png-942f1b12103e3ec98a9a74029d1b032b.ctex"]
+source_file="res://Assets/Sprites/Radish.png"
+dest_files=["res://.godot/imported/Radish.png-18e3f52152e1401a128112f23e670efe.ctex"]
 
 [params]
 

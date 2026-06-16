@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctape4tb0os20"
-path="res://.godot/imported/Garden background tileset.png-732da017a697020fee9036b26a5a6421.ctex"
+uid="uid://bi643l6kga6j4"
+path="res://.godot/imported/Garden tiles updated.png-608ac3eea1bfd93b3a9bc8e01a3d724a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Garden background tileset.png"
-dest_files=["res://.godot/imported/Garden background tileset.png-732da017a697020fee9036b26a5a6421.ctex"]
+source_file="res://Assets/Sprites/Garden tiles updated.png"
+dest_files=["res://.godot/imported/Garden tiles updated.png-608ac3eea1bfd93b3a9bc8e01a3d724a.ctex"]
 
 [params]
 

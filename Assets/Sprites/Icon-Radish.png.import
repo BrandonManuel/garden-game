@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pgg836n3mxa"
-path="res://.godot/imported/Garden tileset.png-1200d324576ad159d31c5172b7cbf340.ctex"
+uid="uid://mxton2wqccjg"
+path="res://.godot/imported/Icon-Radish.png-0b0cbc17e85be37b9b3037eaa022662f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Garden tileset.png"
-dest_files=["res://.godot/imported/Garden tileset.png-1200d324576ad159d31c5172b7cbf340.ctex"]
+source_file="res://Assets/Sprites/Icon-Radish.png"
+dest_files=["res://.godot/imported/Icon-Radish.png-0b0cbc17e85be37b9b3037eaa022662f.ctex"]
 
 [params]
 

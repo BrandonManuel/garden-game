@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3fbv44i4c6l1"
-path="res://.godot/imported/Garden tilemap.png-b6b2acc8dd4c9625e5d6af36cbcd2c3f.ctex"
+uid="uid://cpfrhnvfnpfmg"
+path="res://.godot/imported/Icon-Apple.png-7052a2b42ce848199941328bb0a4f8b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Garden tilemap.png"
-dest_files=["res://.godot/imported/Garden tilemap.png-b6b2acc8dd4c9625e5d6af36cbcd2c3f.ctex"]
+source_file="res://Assets/Sprites/Icon-Apple.png"
+dest_files=["res://.godot/imported/Icon-Apple.png-7052a2b42ce848199941328bb0a4f8b8.ctex"]
 
 [params]
 

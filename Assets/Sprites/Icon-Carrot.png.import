@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1j6jnfg6m6jr"
-path="res://.godot/imported/Vegetables.png-b2cc3754e548983ee09917eaac112b8d.ctex"
+uid="uid://bxd5tvcnblr2u"
+path="res://.godot/imported/Icon-Carrot.png-790a151d5bdb0480d23e892a8361a26e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Vegetables.png"
-dest_files=["res://.godot/imported/Vegetables.png-b2cc3754e548983ee09917eaac112b8d.ctex"]
+source_file="res://Assets/Sprites/Icon-Carrot.png"
+dest_files=["res://.godot/imported/Icon-Carrot.png-790a151d5bdb0480d23e892a8361a26e.ctex"]
 
 [params]
 

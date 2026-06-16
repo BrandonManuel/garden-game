@@ -265,7 +265,7 @@ floor_snap_length = 32.0
 script = ExtResource("1_7dd06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349107139]
-position = Vector2(1, -3)
+position = Vector2(1, -5)
 shape = SubResource("CircleShape2D_bvpys")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1118620001]

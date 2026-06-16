@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupableData" format=3 uid="uid://ud88kg6abmpx"]
+
+[ext_resource type="Texture2D" uid="uid://mxton2wqccjg" path="res://Assets/Sprites/Icon-Radish.png" id="1_482x5"]
+[ext_resource type="Script" uid="uid://d02dg0hpngfwa" path="res://Assets/Scripts/pickupable_data.gd" id="2_yu1r3"]
+
+[resource]
+script = ExtResource("2_yu1r3")
+name = "Radish"
+icon = ExtResource("1_482x5")
+metadata/_custom_type_script = "uid://d02dg0hpngfwa"
