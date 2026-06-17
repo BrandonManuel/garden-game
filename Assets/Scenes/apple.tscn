@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b8vywhjyiru1t"]
+
+[ext_resource type="Texture2D" uid="uid://875n3vfjy31b" path="res://Assets/Sprites/Apples.png" id="1_vlwwp"]
+
+[node name="Apple" type="Area2D" unique_id=2129129718]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545087383]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459675694]
+texture = ExtResource("1_vlwwp")
+vframes = 14
