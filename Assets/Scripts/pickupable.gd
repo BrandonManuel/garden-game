@@ -9,11 +9,15 @@ var tile_position
 
 func _ready():
 	var tilemap = get_parent()
-	tile_position = tilemap.local_to_map(position)
-	sprite_2d.material = sprite_2d.material.duplicate()
+	if tilemap is TileMap or tilemap is TileMapLayer:
+		tile_position = tilemap.local_to_map(position)
+		
+	if sprite_2d.material != null:
+		sprite_2d.material = sprite_2d.material.duplicate()
 	
 func set_outline(enabled: bool) -> void:
-	sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
+	if sprite_2d.material != null:
+		sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
 
 func picked_up() -> void :
 	remove_from_group('pickupables')

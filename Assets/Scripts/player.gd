@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -200.0
 
 var pickup_area_x: float
 var current_pickupable: Pickupable = null
+var current_pickupable_container: PickupableContainer = null
 
 var is_running: bool = false
 var allow_movement: bool = true
@@ -64,22 +65,42 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func attempt_pickup() -> void:
-	if is_picking_up or current_pickupable == null or not current_pickupable.is_in_group("pickupables") or not current_pickupable.has_method("picked_up"):
+	if is_picking_up:
 		return
-	
-	is_picking_up = true
-	allow_movement = false
-	velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
-	animated_sprite_2d.play("pick_up")
-	current_pickupable.picked_up()
-	current_pickupable = null
-	find_next_pickupable()
+		
+	if current_pickupable == null and current_pickupable_container == null:
+		return
+		
+	if current_pickupable != null:
+		is_picking_up = true
+		allow_movement = false
+		velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
+		animated_sprite_2d.play("pick_up")
+		current_pickupable.picked_up()
+		current_pickupable = null
+		find_next_pickupable()
+		return
+		
+	if current_pickupable_container != null:
+		is_picking_up = true
+		allow_movement = false
+		velocity.x = move_toward(velocity.x, 0, RUN_SPEED if is_running else WALK_SPEED)
+		animated_sprite_2d.play("pick_up")
+		current_pickupable_container.picked_up()
+		current_pickupable_container = null
+		find_next_pickupable()
+		return
 
 func find_next_pickupable() -> void:
 	for area in pickup_area.get_overlapping_areas():
 		if area is Pickupable and area.is_in_group("pickupables"):
 			current_pickupable = area
 			current_pickupable.set_outline(true)
+			break
+			
+		if area is PickupableContainer:
+			current_pickupable_container = area
+			current_pickupable_container.set_outline(true)
 			break
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -88,12 +109,21 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		is_picking_up = false
 
 func _on_pickup_area_entered(area: Area2D) -> void:
-	if area is Pickupable and current_pickupable == null:
+	if area is Pickupable and current_pickupable == null and current_pickupable_container == null:
 		current_pickupable = area
 		current_pickupable.set_outline(true)
+
+	if area is PickupableContainer and current_pickupable_container == null and current_pickupable == null:
+		current_pickupable_container = area
+		current_pickupable_container.set_outline(true)
 		
 func _on_pickup_area_exited(area: Area2D) -> void:
 	if area is Pickupable and current_pickupable == area:
 		current_pickupable = null
+		area.set_outline(false)
+		find_next_pickupable()
+		
+	if area is PickupableContainer and current_pickupable_container == area:
+		current_pickupable_container = null
 		area.set_outline(false)
 		find_next_pickupable()

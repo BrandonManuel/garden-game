@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbbxg5216rfm1" path="res://Assets/Sprites/Sky.png" id="1_4cavu"]
 [ext_resource type="Texture2D" uid="uid://cyqan70c2xi4t" path="res://Assets/Sprites/Clouds.png" id="2_kkwia"]
+[ext_resource type="PackedScene" uid="uid://csbplcpw8x653" path="res://Assets/Scenes/apple_tree.tscn" id="4_lsphe"]
 [ext_resource type="PackedScene" uid="uid://q3dp72ekpqx" path="res://Assets/Scenes/radish.tscn" id="5_4cavu"]
 [ext_resource type="PackedScene" uid="uid://e8gekhvgbuii" path="res://Assets/Scenes/chicken.tscn" id="6_281sc"]
 [ext_resource type="PackedScene" uid="uid://b55jut54gsb2v" path="res://Assets/Scenes/onion.tscn" id="6_kkwia"]
@@ -650,8 +651,13 @@ texture = ExtResource("7_lsphe")
 7:14/0 = 0
 7:14/0/texture_origin = Vector2i(0, -2)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_kkwia"]
+resource_name = "Trees"
+scenes/1/scene = ExtResource("4_lsphe")
+
 [sub_resource type="TileSet" id="TileSet_vr5ma"]
 sources/0 = SubResource("TileSetAtlasSource_1ru04")
+sources/1 = SubResource("TileSetScenesCollectionSource_kkwia")
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4cavu"]
 tile_data = PackedInt32Array(0, 393217, 11, 65536, 458753, 13, 131072, 458753, 14)
@@ -1086,7 +1092,7 @@ tile_map_data = PackedByteArray("AAD+/wIABAACAAEAAAAEAAIABAACAAEAAAAFAAIABAACAAE
 tile_set = SubResource("TileSet_m5m1r")
 
 [node name="TreeLayer" type="TileMapLayer" parent="Layers" unique_id=521359200]
-tile_map_data = PackedByteArray("AAD5/wEAAAAHAA4AAAD5/wAAAAAHAA0AAAD5////AAAGAAsAAAA=")
+tile_map_data = PackedByteArray("AAD3/wAAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_vr5ma")
 
 [node name="FenceLayer" type="TileMapLayer" parent="Layers" unique_id=814824809]

@@ -1,4 +1,4 @@
 extends Vegetable
 
 func _init() -> void:
-	_type = VegetableType.BEET
+	_type = VegetableType.RADISH

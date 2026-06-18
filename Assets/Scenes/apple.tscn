@@ -1,11 +1,7 @@
-[gd_scene format=3 uid="uid://b8vywhjyiru1t"]
+[gd_scene format=3 uid="uid://dad42csl2oxt0"]
 
-[ext_resource type="Texture2D" uid="uid://875n3vfjy31b" path="res://Assets/Sprites/Apples.png" id="1_vlwwp"]
+[ext_resource type="PackedScene" uid="uid://b8vywhjyiru1t" path="res://Assets/Scenes/fruit.tscn" id="1_vlwwp"]
+[ext_resource type="Resource" uid="uid://bugvrat1kmstx" path="res://Assets/Resources/apple.tres" id="2_rn1nr"]
 
-[node name="Apple" type="Area2D" unique_id=2129129718]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545087383]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459675694]
-texture = ExtResource("1_vlwwp")
-vframes = 14
+[node name="Apple" unique_id=2129129718 instance=ExtResource("1_vlwwp")]
+data = ExtResource("2_rn1nr")

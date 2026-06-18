@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PickupableContainerData" format=3 uid="uid://b6ykoaiiq2stj"]
+
+[ext_resource type="Script" uid="uid://uclwj4ecrq16" path="res://Assets/Scripts/pickupable_container_data.gd" id="1_ufw5y"]
+
+[resource]
+script = ExtResource("1_ufw5y")
+name = "Apple Tree"
+num_frames = 14
+metadata/_custom_type_script = "uid://uclwj4ecrq16"

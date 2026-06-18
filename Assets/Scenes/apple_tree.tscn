@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://csbplcpw8x653"]
+
+[ext_resource type="Script" uid="uid://cmtsjcthkuqam" path="res://Assets/Scripts/tree.gd" id="1_gkehn"]
+[ext_resource type="Resource" uid="uid://b6ykoaiiq2stj" path="res://Assets/Resources/apple_tree.tres" id="2_fpko3"]
+[ext_resource type="PackedScene" uid="uid://dad42csl2oxt0" path="res://Assets/Scenes/apple.tscn" id="3_aiy4q"]
+[ext_resource type="Shader" uid="uid://cwf30sdalu3l1" path="res://Assets/Shaders/interactable.gdshader" id="4_lxvof"]
+[ext_resource type="Texture2D" uid="uid://b506n4lafbl42" path="res://Assets/Sprites/tree.png" id="5_ci5vo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkehn"]
+shader = ExtResource("4_lxvof")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkehn"]
+radius = 13.0
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkehn"]
+
+[node name="AppleTree" type="Area2D" unique_id=393304803 groups=["pickupables"]]
+script = ExtResource("1_gkehn")
+data = ExtResource("2_fpko3")
+max_num_pickupables = 5
+pickupable_scene = ExtResource("3_aiy4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1334660706]
+material = SubResource("ShaderMaterial_gkehn")
+texture = ExtResource("5_ci5vo")
+
+[node name="Pickupables" type="Area2D" parent="." unique_id=2011184618]
+position = Vector2(-1, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickupables" unique_id=1885772293]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_gkehn")
+disabled = true
+
+[node name="PickupCollision" type="CollisionShape2D" parent="." unique_id=571079390]
+position = Vector2(0, 26)
+shape = SubResource("CircleShape2D_gkehn")

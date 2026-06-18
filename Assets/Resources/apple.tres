@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupableData" format=3 uid="uid://bugvrat1kmstx"]
+
+[ext_resource type="Texture2D" uid="uid://cpfrhnvfnpfmg" path="res://Assets/Sprites/Icon-Apple.png" id="1_cxrur"]
+[ext_resource type="Script" uid="uid://d02dg0hpngfwa" path="res://Assets/Scripts/pickupable_data.gd" id="1_kwjxc"]
+
+[resource]
+script = ExtResource("1_kwjxc")
+name = "Apple"
+icon = ExtResource("1_cxrur")
+metadata/_custom_type_script = "uid://d02dg0hpngfwa"
