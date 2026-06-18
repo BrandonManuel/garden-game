@@ -12,8 +12,8 @@ class_name PickupableContainer
 var num_pickupables: int
 var radius: float
 var height: float
-var pickupables_x: float
-var pickupables_y: float
+var pickupables_x: int
+var pickupables_y: int
 
 var tile_position
 
@@ -29,16 +29,16 @@ func _ready():
 	if shape is CapsuleShape2D:
 		radius = shape.radius
 		height = shape.height
-		pickupables_x = pickupables.position.x
-		pickupables_y = pickupables.position.y
+		pickupables_x = floori(pickupables.position.x)
+		pickupables_y = floori(pickupables.position.y)
 	
 	num_pickupables = randi_range(0, max_num_pickupables)
 	for i in num_pickupables:
 		var pickupable: Pickupable = pickupable_scene.instantiate()
 		
 		# since capsule is horizontal, use height for x and radius for y
-		var random_x: float = randf_range(-height * .5, height * .5)
-		var random_y: float = randf_range(-radius * .5, radius * .5)
+		var random_x: int = randi_range(-height * .5, height * .5)
+		var random_y: int = randi_range(-radius * .5, radius * .5)
 		var random_image_index: int = randi_range(0, data.num_frames - 1)
 		
 		add_child(pickupable)
