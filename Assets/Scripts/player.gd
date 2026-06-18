@@ -98,7 +98,7 @@ func find_next_pickupable() -> void:
 			current_pickupable.set_outline(true)
 			break
 			
-		if area is PickupableContainer:
+		if area is PickupableContainer and area.num_pickupables != null and area.num_pickupables > 0:
 			current_pickupable_container = area
 			current_pickupable_container.set_outline(true)
 			break
@@ -113,7 +113,7 @@ func _on_pickup_area_entered(area: Area2D) -> void:
 		current_pickupable = area
 		current_pickupable.set_outline(true)
 
-	if area is PickupableContainer and current_pickupable_container == null and current_pickupable == null:
+	if area is PickupableContainer and area.num_pickupables > 0 and current_pickupable_container == null and current_pickupable == null:
 		current_pickupable_container = area
 		current_pickupable_container.set_outline(true)
 		

@@ -9,6 +9,7 @@ class_name PickupableContainer
 
 @onready var pickupables: Area2D = $Pickupables
 
+var num_pickupables: int
 var radius: float
 var height: float
 var pickupables_x: float
@@ -31,7 +32,7 @@ func _ready():
 		pickupables_x = pickupables.position.x
 		pickupables_y = pickupables.position.y
 	
-	var num_pickupables = randi_range(0, max_num_pickupables)
+	num_pickupables = randi_range(0, max_num_pickupables)
 	for i in num_pickupables:
 		var pickupable: Pickupable = pickupable_scene.instantiate()
 		

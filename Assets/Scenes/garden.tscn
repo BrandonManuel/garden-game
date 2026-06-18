@@ -1092,7 +1092,7 @@ tile_map_data = PackedByteArray("AAD+/wIABAACAAEAAAAEAAIABAACAAEAAAAFAAIABAACAAE
 tile_set = SubResource("TileSet_m5m1r")
 
 [node name="TreeLayer" type="TileMapLayer" parent="Layers" unique_id=521359200]
-tile_map_data = PackedByteArray("AAD3/wAAAQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD3/wAAAQAAAAAAAQDz/wAAAQAAAAAAAQDv/wAAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_vr5ma")
 
 [node name="FenceLayer" type="TileMapLayer" parent="Layers" unique_id=814824809]
