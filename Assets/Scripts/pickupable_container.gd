@@ -75,7 +75,7 @@ func _ready():
 func set_outline(enabled: bool) -> void:
 	sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
 	for pickupable in get_children():
-		if pickupable is Fruit:
+		if pickupable is Pickupable:
 			var shader_material := ShaderMaterial.new()
 			shader_material.shader = shader_path
 			pickupable.sprite_2d.material = shader_material
@@ -84,15 +84,26 @@ func set_outline(enabled: bool) -> void:
 func picked_up() -> void :
 	remove_from_group('pickupables')
 	set_outline(false)
-	var tween = get_tree().create_tween()
-	tween.tween_property(sprite_2d,"position", Vector2.UP * 5, .5).as_relative().set_trans(Tween.TRANS_LINEAR)
-	tween.parallel().tween_property(sprite_2d,"region_rect", Rect2(0, 0, 16.0, 32.0), .5).set_trans(Tween.TRANS_LINEAR)
+	clear()
+#	Commenting out apple tree and apple rotate for now bc looks bad TODO fix this
+	#var animation_tween = get_tree().create_tween()
+	#animation_tween.tween_property(sprite_2d, "frame", 8, 1.0)
+#
+	#var keyframes = [10, 20, 10, 0, -10, -20, -10, 0]
+#
+	#for pickupable in get_children():
+		#if pickupable is Pickupable:
+			#var apple_animation_tween = get_tree().create_tween()
+			#var pickupable_sprite_2d = pickupable.sprite_2d
+			#for angle in keyframes:
+				#apple_animation_tween.tween_property(pickupable_sprite_2d, "rotation", deg_to_rad(angle), .11)
 
-	tween.tween_callback(clear)
+	#animation_tween.tween_callback(clear)
 
 func clear():
-	await get_tree().create_timer(.5).timeout
-	var tilemap = get_parent()
-	tilemap.set_cell(tile_position)
-	#Inventory.add(data)
-	queue_free()
+	for pickupable in get_children():
+		if pickupable is Pickupable:
+			var pickupable_data = pickupable.data
+			Inventory.add(pickupable_data)
+			pickupable.queue_free()
+			num_pickupables = 0

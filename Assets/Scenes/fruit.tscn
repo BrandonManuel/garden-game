@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlwwp"]
 radius = 4.0
 
-[node name="Fruit" type="Area2D" unique_id=2129129718]
+[node name="Fruit" type="Area2D" unique_id=758838934]
 script = ExtResource("1_ehj3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1545087383]

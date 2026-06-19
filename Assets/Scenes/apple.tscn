@@ -4,4 +4,6 @@
 [ext_resource type="Resource" uid="uid://bugvrat1kmstx" path="res://Assets/Resources/apple.tres" id="2_rn1nr"]
 
 [node name="Apple" unique_id=2129129718 instance=ExtResource("1_vlwwp")]
+gravity_space_override = 1
+gravity_point = true
 data = ExtResource("2_rn1nr")

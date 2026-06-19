@@ -27,11 +27,13 @@ pickupable_scene = ExtResource("3_aiy4q")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1334660706]
 material = SubResource("ShaderMaterial_gkehn")
 texture = ExtResource("5_ci5vo")
+hframes = 9
 
 [node name="Pickupables" type="Area2D" parent="." unique_id=2011184618]
 position = Vector2(-1, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickupables" unique_id=1885772293]
+position = Vector2(0, -1.9073486e-06)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gkehn")
 disabled = true
