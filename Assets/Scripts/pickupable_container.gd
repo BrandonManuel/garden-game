@@ -1,19 +1,24 @@
 extends Area2D
 class_name PickupableContainer
 
+var shader_path = preload("res://Assets/Shaders/interactable.gdshader")
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var pickupables: Area2D = $Pickupables
 
 @export var data: PickupableContainerData
 @export var max_num_pickupables: int
+@export var min_num_pickupables: int
 @export var pickupable_scene: PackedScene
 
-@onready var pickupables: Area2D = $Pickupables
 
 var num_pickupables: int
 var radius: float
 var height: float
 var pickupables_x: int
 var pickupables_y: int
+var placed_positions: Array[Vector2] = []
+var min_distance: float = 8.0
 
 var tile_position
 
@@ -32,24 +37,49 @@ func _ready():
 		pickupables_x = floori(pickupables.position.x)
 		pickupables_y = floori(pickupables.position.y)
 	
-	num_pickupables = randi_range(0, max_num_pickupables)
-	for i in num_pickupables:
-		var pickupable: Pickupable = pickupable_scene.instantiate()
-		
+	num_pickupables = randi_range(min_num_pickupables, max_num_pickupables)
+	var num_placed := 0
+	var attempts := 0
+	var max_attempts := num_pickupables * 30
+
+	while num_placed < num_pickupables and attempts < max_attempts:
+		attempts += 1
 		# since capsule is horizontal, use height for x and radius for y
-		var random_x: int = randi_range(-height * .5, height * .5)
-		var random_y: int = randi_range(-radius * .5, radius * .5)
+		var random_x: int = floori(randi_range(-height * .45, height * .45)) + pickupables_x
+		var random_y: int = floori(randi_range(-radius * .45, radius * .45)) + pickupables_y
+		
+		var candidate := Vector2(random_x, random_y)
+
+		var overlapping := false
+		for pos in placed_positions:
+			if candidate.distance_to(pos) < min_distance:
+				overlapping = true
+				break			
+		
+		if overlapping:
+			continue
+		
+		placed_positions.append(candidate)
 		var random_image_index: int = randi_range(0, data.num_frames - 1)
 		
+		var pickupable: Pickupable = pickupable_scene.instantiate()
 		add_child(pickupable)
 		pickupable.sprite_2d.scale = Vector2(1, 1)
-		pickupable.sprite_2d.position.x = pickupables_x + random_x
-		pickupable.sprite_2d.position.y = pickupables_y + random_y
+		pickupable.sprite_2d.position.x = random_x
+		pickupable.sprite_2d.position.y = random_y
 		pickupable.sprite_2d.frame = random_image_index
+		
+		num_placed += 1
 		
 	
 func set_outline(enabled: bool) -> void:
 	sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
+	for pickupable in get_children():
+		if pickupable is Fruit:
+			var shader_material := ShaderMaterial.new()
+			shader_material.shader = shader_path
+			pickupable.sprite_2d.material = shader_material
+			pickupable.sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
 
 func picked_up() -> void :
 	remove_from_group('pickupables')

@@ -21,7 +21,7 @@ height = 42.0
 [node name="AppleTree" type="Area2D" unique_id=393304803 groups=["pickupables"]]
 script = ExtResource("1_gkehn")
 data = ExtResource("2_fpko3")
-max_num_pickupables = 5
+max_num_pickupables = 10
 pickupable_scene = ExtResource("3_aiy4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1334660706]
