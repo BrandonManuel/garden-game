@@ -84,26 +84,13 @@ func set_outline(enabled: bool) -> void:
 func picked_up() -> void :
 	remove_from_group('pickupables')
 	set_outline(false)
+	var animation_tween = get_tree().create_tween()
+	animation_tween.tween_property(sprite_2d, "frame", 8, 1.0)
 	clear()
-#	Commenting out apple tree and apple rotate for now bc looks bad TODO fix this
-	#var animation_tween = get_tree().create_tween()
-	#animation_tween.tween_property(sprite_2d, "frame", 8, 1.0)
-#
-	#var keyframes = [10, 20, 10, 0, -10, -20, -10, 0]
-#
-	#for pickupable in get_children():
-		#if pickupable is Pickupable:
-			#var apple_animation_tween = get_tree().create_tween()
-			#var pickupable_sprite_2d = pickupable.sprite_2d
-			#for angle in keyframes:
-				#apple_animation_tween.tween_property(pickupable_sprite_2d, "rotation", deg_to_rad(angle), .11)
-
-	#animation_tween.tween_callback(clear)
 
 func clear():
 	for pickupable in get_children():
 		if pickupable is Pickupable:
-			var pickupable_data = pickupable.data
-			Inventory.add(pickupable_data)
-			pickupable.queue_free()
-			num_pickupables = 0
+#			.lift() plays animation but also then adds the data after when it calls internal .clear()
+			pickupable.lift()
+			num_pickupables -= 1
