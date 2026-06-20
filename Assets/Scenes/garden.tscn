@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ctidjvkufd25k" path="res://Assets/Scenes/onion_garden_box.tscn" id="7_kkwia"]
 [ext_resource type="Texture2D" uid="uid://bi643l6kga6j4" path="res://Assets/Sprites/Garden tiles updated.png" id="7_lsphe"]
 [ext_resource type="PackedScene" uid="uid://dlyk636w6nuap" path="res://Assets/Scenes/player.tscn" id="7_m5m1r"]
-[ext_resource type="Script" uid="uid://dq0g54e3ur5g" path="res://Assets/Scripts/gui_inventory.gd" id="11_kkwia"]
+[ext_resource type="PackedScene" uid="uid://l8ev58sd5ng4" path="res://Assets/Scenes/gui_inventory.tscn" id="12_lsphe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkwia"]
 texture = ExtResource("1_4cavu")
@@ -1148,9 +1148,7 @@ layout_mode = 2
 text = "Inventory"
 horizontal_alignment = 1
 
-[node name="GUI_Inventory" type="HBoxContainer" parent="CanvasLayer/InventoryContainer" unique_id=236302930]
+[node name="GUI_Inventory" parent="CanvasLayer/InventoryContainer" unique_id=475860996 instance=ExtResource("12_lsphe")]
 layout_mode = 2
-alignment = 1
-script = ExtResource("11_kkwia")
 
 [connection signal="toggle_inventory" from="Player" to="CanvasLayer/InventoryContainer/GUI_Inventory" method="_on_player_toggle_inventory"]

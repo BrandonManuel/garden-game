@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bp03jog1d4u13"]
+
+[ext_resource type="Script" uid="uid://crllkkxv7xp1w" path="res://Assets/Scripts/inventory_item.gd" id="1_0a5b3"]
+
+[node name="Inventory_Item" type="Control" unique_id=288695373]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0a5b3")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://l8ev58sd5ng4"]
+
+[ext_resource type="Script" uid="uid://dq0g54e3ur5g" path="res://Assets/Scripts/gui_inventory.gd" id="1_yrkkx"]
+
+[node name="GUI_Inventory" type="HBoxContainer" unique_id=475860996]
+alignment = 1
+script = ExtResource("1_yrkkx")
