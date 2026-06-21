@@ -27,7 +27,7 @@ func picked_up() -> void :
 func lift():
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite_2d,"position", Vector2.UP * 5, .5).as_relative().set_trans(Tween.TRANS_LINEAR)
-	tween.parallel().tween_property(sprite_2d,"region_rect", Rect2(0, 0, 16.0, 32.0), .5).set_trans(Tween.TRANS_LINEAR)
+	tween.parallel().tween_property(sprite_2d,"region_rect", Rect2(0, 0, sprite_2d.region_rect.size.x, 32.0), .5).set_trans(Tween.TRANS_LINEAR)
 
 	tween.tween_callback(clear)
 	

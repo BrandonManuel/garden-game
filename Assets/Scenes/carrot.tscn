@@ -7,3 +7,6 @@
 [node name="Carrot" unique_id=1640175768 instance=ExtResource("1_pkbe7")]
 script = ExtResource("2_k12ti")
 data = ExtResource("3_fcg08")
+
+[node name="Sprite2D" parent="." index="0" unique_id=535966257]
+region_rect = Rect2(0, 0, 8, 16)

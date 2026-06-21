@@ -1099,15 +1099,28 @@ tile_set = SubResource("TileSet_vr5ma")
 tile_map_data = PackedByteArray("AAAEAAEAAQAUAAwAAAAFAAEAAQAVAAwAAAAGAAEAAQAVAAwAAAAHAAEAAQAVAAwAAAAIAAEAAQAWAAwAAAA=")
 tile_set = SubResource("TileSet_lsphe")
 
-[node name="BackgroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=2047995431]
+[node name="BackgroundVegetableLayer2" type="TileMapLayer" parent="Layers" unique_id=578020]
 z_index = -2
 tile_map_data = PackedByteArray("AAAUAAQAAAAAAAAABQAVAAQAAAAAAAAABQAVAAUAAgAAAA8AAAAWAAQAAAAAAAAABQAYAAQAAAAAAAAABQAZAAQAAAAAAAAABQAZAAUAAgAAAA8AAAAaAAQAAAAAAAAABQAcAAQAAAAAAAAABQAdAAQAAAAAAAAABQAdAAUAAgAAAA8AAAAeAAQAAAAAAAAABQD//wIAAAAAAAAAAgABAAIAAAAAAAAAAgADAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAHAAIAAAAAAAAAAwAJAAIAAAAAAAAAAgA=")
 tile_set = SubResource("TileSet_4cavu")
 
-[node name="ForegroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=2037051950]
+[node name="HalfStepBackgroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=2047995431]
+z_index = -2
+position = Vector2(8, 0)
+tile_map_data = PackedByteArray("AAAUAAQAAAAAAAAABQAVAAQAAAAAAAAABQAVAAUAAgAAAA8AAAAWAAQAAAAAAAAABQAYAAQAAAAAAAAABQAZAAQAAAAAAAAABQAZAAUAAgAAAA8AAAAaAAQAAAAAAAAABQAcAAQAAAAAAAAABQAdAAQAAAAAAAAABQAdAAUAAgAAAA8AAAAeAAQAAAAAAAAABQD//wIAAAAAAAAAAgABAAIAAAAAAAAAAgADAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAHAAIAAAAAAAAAAwAJAAIAAAAAAAAAAgA=")
+tile_set = SubResource("TileSet_4cavu")
+
+[node name="ForegroundVegetableLayer2" type="TileMapLayer" parent="Layers" unique_id=1745187350]
 z_index = 10
 z_as_relative = false
-position = Vector2(0, 4)
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAwAEAAIAAAAAAAAAAgAAAAIAAAAAAAAAAQAGAAIAAAAAAAAAAQAIAAIAAAAAAAAAAwA=")
+tile_set = SubResource("TileSet_4cavu")
+
+[node name="HalfStepForegroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=2037051950]
+z_index = 10
+z_as_relative = false
+position = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAwAEAAIAAAAAAAAAAgAAAAIAAAAAAAAAAQAGAAIAAAAAAAAAAQAIAAIAAAAAAAAAAwA=")
 tile_set = SubResource("TileSet_4cavu")
 

@@ -13,6 +13,7 @@ data = ExtResource("3_4t7u5")
 z_index = -1
 texture = ExtResource("4_x8q33")
 offset = Vector2(0, 16)
+region_rect = Rect2(0, 0, 8, 16)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=757594662]
 position = Vector2(0, 15)

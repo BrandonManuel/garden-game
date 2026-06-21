@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://q3dp72ekpqx"]
 
 [ext_resource type="PackedScene" uid="uid://mq06eetk2bog" path="res://Assets/Scenes/vegetable.tscn" id="1_71g7r"]
-[ext_resource type="Texture2D" uid="uid://ckfrsdabbxpdx" path="res://Assets/Sprites/Beet.png" id="2_j7kt4"]
+[ext_resource type="Texture2D" uid="uid://ckfrsdabbxpdx" path="res://Assets/Sprites/Radish.png" id="2_j7kt4"]
 [ext_resource type="Script" uid="uid://xlunqxqw48qt" path="res://Assets/Scripts/radish.gd" id="2_v2lpf"]
 [ext_resource type="Resource" uid="uid://ud88kg6abmpx" path="res://Assets/Resources/radish.tres" id="3_b2x0s"]
 
@@ -11,3 +11,4 @@ data = ExtResource("3_b2x0s")
 
 [node name="Sprite2D" parent="." index="0" unique_id=535966257]
 texture = ExtResource("2_j7kt4")
+region_rect = Rect2(0, 0, 9, 16)

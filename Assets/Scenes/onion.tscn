@@ -11,3 +11,4 @@ data = ExtResource("3_15c51")
 
 [node name="Sprite2D" parent="." index="0" unique_id=535966257]
 texture = ExtResource("2_qpyk1")
+region_rect = Rect2(0, 0, 8, 16)
