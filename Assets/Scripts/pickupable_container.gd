@@ -63,6 +63,9 @@ func _ready():
 		var random_image_index: int = randi_range(0, data.num_frames - 1)
 		
 		var pickupable: Pickupable = pickupable_scene.instantiate()
+#		disable collision since this is being placed on a container
+		var pickupable_collision: CollisionShape2D = pickupable.get_node("CollisionShape2D")
+		pickupable_collision.disabled = true
 		add_child(pickupable)
 		pickupable.sprite_2d.scale = Vector2(1, 1)
 		pickupable.sprite_2d.position.x = random_x
