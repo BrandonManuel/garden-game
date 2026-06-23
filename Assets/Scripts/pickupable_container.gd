@@ -74,6 +74,8 @@ func _ready():
 		
 		num_placed += 1
 		
+#	Setting num_pickables to num_placed since it's possible they weren't all placed successfully
+	num_pickupables = num_placed
 	
 func set_outline(enabled: bool) -> void:
 	sprite_2d.material.set_shader_parameter("outline_enabled", enabled)
