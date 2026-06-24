@@ -14,8 +14,9 @@ func _init(item: PickupableData):
 	_icon = TextureRect.new()
 	_icon.texture = _data.icon
 	_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	_icon.custom_minimum_size = Vector2(64, 64)
-	
+	_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_icon.custom_minimum_size = Vector2(16, 16)
+
 	num_items = 0
 
 	_label = Label.new()

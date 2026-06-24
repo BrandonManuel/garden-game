@@ -26,7 +26,8 @@ func _new_item(item: PickupableData) -> void:
 		var divider: TextureRect  = TextureRect.new()
 		divider.texture = divider_icon
 		divider.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		divider.custom_minimum_size = Vector2(64, 64)
+		divider.custom_minimum_size = Vector2(16, 16)
+
 		add_child(divider)
 		move_child(divider, len(get_children()) - 2)
 	

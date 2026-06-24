@@ -1099,7 +1099,7 @@ tile_set = SubResource("TileSet_vr5ma")
 tile_map_data = PackedByteArray("AAAEAAEAAQAUAAwAAAAFAAEAAQAVAAwAAAAGAAEAAQAVAAwAAAAHAAEAAQAVAAwAAAAIAAEAAQAWAAwAAAA=")
 tile_set = SubResource("TileSet_lsphe")
 
-[node name="BackgroundVegetableLayer2" type="TileMapLayer" parent="Layers" unique_id=578020]
+[node name="BackgroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=578020]
 z_index = -2
 tile_map_data = PackedByteArray("AAAUAAQAAAAAAAAABQAVAAQAAAAAAAAABQAVAAUAAgAAAA8AAAAWAAQAAAAAAAAABQAYAAQAAAAAAAAABQAZAAQAAAAAAAAABQAaAAQAAAAAAAAABQAcAAQAAAAAAAAABQAeAAQAAAAAAAAABQD//wIAAAAAAAAAAgABAAIAAAAAAAAAAgADAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAHAAIAAAAAAAAAAwAJAAIAAAAAAAAAAgAdAAQAAAAAAAAABQAZAAUAAgAAAA8AAAAdAAUAAgAAAA8AAAA=")
 tile_set = SubResource("TileSet_4cavu")
@@ -1110,7 +1110,7 @@ position = Vector2(8, 0)
 tile_map_data = PackedByteArray("AAAUAAQAAAAAAAAABQAVAAQAAAAAAAAABQAYAAQAAAAAAAAABQAdAAQAAAAAAAAABQD//wIAAAAAAAAAAgABAAIAAAAAAAAAAgADAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAHAAIAAAAAAAAAAwAJAAIAAAAAAAAAAgAcAAQAAAAAAAAABQAZAAQAAAAAAAAABQA=")
 tile_set = SubResource("TileSet_4cavu")
 
-[node name="ForegroundVegetableLayer2" type="TileMapLayer" parent="Layers" unique_id=1745187350]
+[node name="ForegroundVegetableLayer" type="TileMapLayer" parent="Layers" unique_id=1745187350]
 z_index = 10
 z_as_relative = false
 position = Vector2(0, 8)

@@ -269,7 +269,7 @@ position = Vector2(1, -5)
 shape = SubResource("CircleShape2D_bvpys")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1118620001]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 
