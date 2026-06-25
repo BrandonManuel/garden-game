@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.play('walk')
 			velocity.x = direction * WALK_SPEED
-		if direction < 1:
+		if direction < 0:
 			animated_sprite_2d.flip_h = true
 			pickup_area.position.x = pickup_area_x * -1
 		else:
